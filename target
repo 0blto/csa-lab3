@@ -1,0 +1,6 @@
+[{"index": 0, "instruction": "ld", "arguments": [{"address_mode": "register", "data": "r5", "offset": 0}, {"address_mode": "absolute", "data": 0, "offset": 0}]},
+ {"index": 1, "instruction": "cmp", "arguments": [{"address_mode": "register", "data": "r5", "offset": 0}, {"address_mode": "data", "data": 0, "offset": 0}]},
+ {"index": 2, "instruction": "jz", "arguments": [{"address_mode": "absolute", "data": 5, "offset": 0}]},
+ {"index": 3, "instruction": "st", "arguments": [{"address_mode": "absolute", "data": 1, "offset": 0}, {"address_mode": "register", "data": "r5", "offset": 0}]},
+ {"index": 4, "instruction": "jmp", "arguments": [{"address_mode": "absolute", "data": 0, "offset": 0}]},
+ {"index": 5, "instruction": "hlt", "arguments": []}]

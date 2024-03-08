@@ -1,0 +1,73 @@
+in_source: |-
+  section data
+  section text
+  start:
+      read_char:
+          ld @r5 !stdin
+          cmp @r5 0
+          jz :fin
+          st !stdout @r5
+          jmp :read_char
+      fin:
+          hlt
+
+in_stdin: |-
+  xxxnsane!
+out_code: |
+  [{"index": 0, "instruction": "ld", "arguments": [{"address_mode": "register", "data": "r5", "offset": 0}, {"address_mode": "absolute", "data": 0, "offset": 0}]},
+   {"index": 1, "instruction": "cmp", "arguments": [{"address_mode": "register", "data": "r5", "offset": 0}, {"address_mode": "data", "data": 0, "offset": 0}]},
+   {"index": 2, "instruction": "jz", "arguments": [{"address_mode": "absolute", "data": 5, "offset": 0}]},
+   {"index": 3, "instruction": "st", "arguments": [{"address_mode": "absolute", "data": 1, "offset": 0}, {"address_mode": "register", "data": "r5", "offset": 0}]},
+   {"index": 4, "instruction": "jmp", "arguments": [{"address_mode": "absolute", "data": 0, "offset": 0}]},
+   {"index": 5, "instruction": "hlt", "arguments": []}]
+out_stdout: |
+  source LoC: 9 code instr: 6
+  Instructions number: 45
+  120[x] 120[x] 120[x] 110[n] 115[s] 97[a] 110[n] 101[e] 33[!]
+out_log: |
+  INFO    PC: 0, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 0, R6: 0, D_ALU_BUD: 0, A_ALU_BUD: 0, MEM_BUS: 0, N: False, Z: False 
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 0, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 120, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 120, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 120, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 115, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 115, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 115, R6: 0, D_ALU_BUD: 115, A_ALU_BUD: 0, MEM_BUS: 115, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 115, R6: 0, D_ALU_BUD: 115, A_ALU_BUD: 0, MEM_BUS: 115, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 115, R6: 0, D_ALU_BUD: 115, A_ALU_BUD: 0, MEM_BUS: 115, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 115, R6: 0, D_ALU_BUD: 115, A_ALU_BUD: 0, MEM_BUS: 115, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 97, R6: 0, D_ALU_BUD: 115, A_ALU_BUD: 0, MEM_BUS: 97, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 97, R6: 0, D_ALU_BUD: 97, A_ALU_BUD: 0, MEM_BUS: 97, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 97, R6: 0, D_ALU_BUD: 97, A_ALU_BUD: 0, MEM_BUS: 97, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 97, R6: 0, D_ALU_BUD: 97, A_ALU_BUD: 0, MEM_BUS: 97, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 97, R6: 0, D_ALU_BUD: 97, A_ALU_BUD: 0, MEM_BUS: 97, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 97, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 110, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 110, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 101, R6: 0, D_ALU_BUD: 110, A_ALU_BUD: 0, MEM_BUS: 101, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 101, R6: 0, D_ALU_BUD: 101, A_ALU_BUD: 0, MEM_BUS: 101, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 101, R6: 0, D_ALU_BUD: 101, A_ALU_BUD: 0, MEM_BUS: 101, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 101, R6: 0, D_ALU_BUD: 101, A_ALU_BUD: 0, MEM_BUS: 101, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 101, R6: 0, D_ALU_BUD: 101, A_ALU_BUD: 0, MEM_BUS: 101, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
+  INFO    PC: 1, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 33, R6: 0, D_ALU_BUD: 101, A_ALU_BUD: 0, MEM_BUS: 33, N: False, Z: False INDEX: 0, OPCODE: LD, ARGS: [(register, r5, 0), (absolute, 0, 0)]
+  INFO    PC: 2, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 33, R6: 0, D_ALU_BUD: 33, A_ALU_BUD: 0, MEM_BUS: 33, N: False, Z: False INDEX: 1, OPCODE: CMP, ARGS: [(register, r5, 0), (data, 0, 0)]
+  INFO    PC: 3, ADDR_BUS: 0, R1: 0, R2: 0, R3: 0, R4: 0, R5: 33, R6: 0, D_ALU_BUD: 33, A_ALU_BUD: 0, MEM_BUS: 33, N: False, Z: False INDEX: 2, OPCODE: JZ, ARGS: [(absolute, 5, 0)]
+  INFO    PC: 4, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 33, R6: 0, D_ALU_BUD: 33, A_ALU_BUD: 0, MEM_BUS: 33, N: False, Z: False INDEX: 3, OPCODE: ST, ARGS: [(absolute, 1, 0), (register, r5, 0)]
+  INFO    PC: 0, ADDR_BUS: 1, R1: 0, R2: 0, R3: 0, R4: 0, R5: 33, R6: 0, D_ALU_BUD: 33, A_ALU_BUD: 0, MEM_BUS: 33, N: False, Z: False INDEX: 4, OPCODE: JMP, ARGS: [(absolute, 0, 0)]
