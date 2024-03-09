@@ -10,18 +10,7 @@
 Пример:
 
 ```json
-[
-    {
-        "index": 0,
-        "instruction_name": "jz",
-        "arguments": [
-            {
-                address_mode: "absolute",
-                data: 30
-            }
-        ]
-    }
-]
+[{"index": 0, "instruction_name": "jz", "arguments": [{address_mode: "absolute", data: 30, offset: 0}]}]
 ```
 
 где:
@@ -50,7 +39,7 @@ class Register(str, Enum):
     def __contains__(self, item):
         try:
             Register(item)
-        except ValueError:
+        except ValueError or TypeError:
             return False
         return True
 
