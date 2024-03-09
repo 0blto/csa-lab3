@@ -235,7 +235,9 @@ operation_0_args ::= "HLT"
 
 ### Схема DataPath и ControlUnit
 
-![Схема DataPath и ControlUnit](./scheme.png)
+![DataPath](./DataPath.png)
+
+![ControlUnit](./ControlUnit.png)
 
 ### DataPath
 
