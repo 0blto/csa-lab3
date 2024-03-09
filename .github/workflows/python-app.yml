@@ -30,7 +30,7 @@ jobs:
 
       - name: Run tests 
         run: |
-          poetry run coverage run -m pytest . no:warnings
+          poetry run coverage run -m pytest -p no:warnings . 
           poetry run coverage report -m 
 
 
