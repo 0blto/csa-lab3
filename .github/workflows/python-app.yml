@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests 
         run: |
-          poetry run pytest -W ignore::TypeError . -v
+          poetry run pytest -W ignore::DeprecationWarning . -v
 
 
 
