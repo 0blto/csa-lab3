@@ -36,13 +36,9 @@ class Register(str, Enum):
     R5 = 'r5'
     R6 = 'r6'
 
-    def __contains__(self, item):
-        if isinstance(item, int):
-            return False
-        try:
-            return super().__contains__(item)
-        except ValueError:
-            return False
+    @classmethod
+    def is_member(cls, value):
+        return any(value == item.value for item in cls)
 
     def __str__(self):
         return str(self.value)
@@ -211,7 +207,7 @@ def read_code(filename):
                                               argument['data'] if not AddressMode(
                                                   argument['address_mode']) is AddressMode.REG
                                               else Register(argument['data']),
-                                              offset=(int(argument['offset']) if not argument['offset'] in Register
+                                              offset=(int(argument['offset']) if not Register.is_member(argument['offset'])
                                                       else Register(argument['offset']))))
         instructions.append(instruction)
 
