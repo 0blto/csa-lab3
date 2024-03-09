@@ -37,11 +37,12 @@ class Register(str, Enum):
     R6 = 'r6'
 
     def __contains__(self, item):
-        try:
-            Register(item)
-        except ValueError or TypeError:
+        if isinstance(item, int):
             return False
-        return True
+        try:
+            return super().__contains__(item)
+        except ValueError:
+            return False
 
     def __str__(self):
         return str(self.value)
