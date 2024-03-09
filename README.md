@@ -239,7 +239,7 @@ operation_0_args ::= "HLT"
 
 Реализован в классе `DataPath` модуля: [machine.py](./machine.py)
 
-- `memory` -- однопортовая, читаем, либо пишем.
+- `data_memory` -- однопортовая, читаем, либо пишем.
 - `registers_file` -- отвечает за управление регистрами. Получает на вход сигналы с операндами и регистром для записи.
   - `registers_file.first` -- регистр, данные из которого будут поданы на левый вход АЛУ или на регистровый файл.
   - `registers_file.second` -- регистр, данные из которого будут поданы на правый вход АЛУ или в память.
@@ -281,6 +281,7 @@ operation_0_args ::= "HLT"
 Реализован в классе `ControlUnit` модуля: [machine.py](./machine.py)
 
 - Hardwired.
+- Память для инструкций `program_memory`
 - Моделирование на уровне инструкций.
 - Трансляция инструкции в последовательность сигналов: `decode_and_execute_instruction`.
 - Содержит текущую исполняемую операцию - `processing_instruction`.
@@ -299,7 +300,8 @@ operation_0_args ::= "HLT"
 
 1. [hello world](./examples/hello.asm).
 2. [cat](./examples/cat.asm) -- программа cat, повторяем ввод на выводе.
-3. [prob5](./examples/prob5.asm) -- рассчитать сумму четных чисел Фибоначчи, значение которых не превышает 4000000.
+3. [hello_user_name](./examples/hello_user_name.asm) - Hello, `username`.
+4. [prob5](./examples/prob5.asm) -- найти наименьшее общее кратное числел от 1 до 20 и вывести в **STDOUT**.
 
 Голден-тесты в папке **golden**.
 
