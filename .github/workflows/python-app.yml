@@ -27,7 +27,8 @@ jobs:
 
       - name: Run tests 
         run: |
-          poetry run pytest -W ignore::DeprecationWarning . -v
+          poetry run coverage run -m pytest .
+          poetry run coverage report -m
 
 
 
