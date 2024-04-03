@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "lab3csa"
+name = "csa-lab3"
 version = "0.1.0"
 description = "Попытка намбер ван"
 authors = ["xxxnsane"]
